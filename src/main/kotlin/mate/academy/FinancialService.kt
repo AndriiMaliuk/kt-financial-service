@@ -1,6 +1,7 @@
-
 package mate.academy
 
+const val EXCHANGE_RATE_USD_TO_EUR = 0.93
+const val EXCHANGE_RATE_EUR_TO_USD = 0.82
 class FinancialService {
     fun transferFunds(
         source: AccountNumber,
@@ -28,8 +29,8 @@ class FinancialService {
         toCurrency: CurrencyCode
     ): Double {
         return when {
-            fromCurrency.code == "USD" && toCurrency.code == "EUR" -> 0.93
-            fromCurrency.code == "USD" && toCurrency.code == "GBP" -> 0.82
+            fromCurrency.code == "USD" && toCurrency.code == "EUR" -> EXCHANGE_RATE_USD_TO_EUR
+            fromCurrency.code == "USD" && toCurrency.code == "GBP" -> EXCHANGE_RATE_EUR_TO_USD
             else -> 1.0
         }
     }
